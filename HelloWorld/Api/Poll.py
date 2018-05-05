@@ -39,7 +39,7 @@ class Poll:
   def stream(self):
     while True:
       try:
-        Ops = self.client.fetchOperation(self.rev, 50)
+        Ops = self.client.fetchOperations(self.rev, 50)
       except EOFError:
         raise Exception("It might be wrong revision\n" + str(self.rev))
 
