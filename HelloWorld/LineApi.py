@@ -341,8 +341,9 @@ class LINE:
 
   def updateGroup(self, groupObject):
         return self.Talk.client.updateGroup(0, groupObject)
-  def findGroupByTicket(self,ticketId):
-        return self.Talk.client.findGroupByTicket(0,ticketId)
+        
+   def findGroupByTicket(self, ticketId):
+       return self.Talk.client.findGroupByTicket(ticketId)
 
   """Room"""
 
