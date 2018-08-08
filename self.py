@@ -1480,4 +1480,4 @@ def bot(op):
         print error
 
 while True:
-	bot(cl.stream())
+	bot(cl.polling())
