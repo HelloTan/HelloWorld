@@ -36,15 +36,10 @@ class Poll:
     self.transport.path = self.polling_path
     self.transport.open()
 
-  def stream(self):
+  def polling(self):
     while True:
-      try:
-        Ops = self.client.fetchOperations(self.rev, 50)
-      except EOFError:
-        raise Exception("It might be wrong revision\n" + str(self.rev))
-
+      Ops = self.client.fetchOperations(self.rev, 50)
       for Op in Ops:
-          # print Op.type
         if (Op.type != OpType.END_OF_OPERATION):
           self.rev = max(self.rev, Op.revision)
           return Op
